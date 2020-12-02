@@ -11,7 +11,7 @@ def help(message: telebot.types.Message):
     text = '''
 Чтобы начать работу, введите команду боту в следующем формате:
     <есть> <нужно> [<объем>]
-где
+где:
     <есть> - имя исходной валюты 
     <нужно> - в какую валюту перевести
     <объем> - количество исходной валюты
@@ -38,15 +38,16 @@ def convert(message: telebot.types.Message):
     values = message.text.split()
     # Проверяем, что пользователь ввёл 2 или 3 необходимых параметра
     if not(len(values) in (2, 3)):
-        return bot.reply_to(message, 'Неверное количество параметров\nДля получения справки введите /help')
+        return bot.reply_to(message, 'Неверное количество параметров\n Для получения справки введите /help')
     quote, base = values[0], values[1]
-    amount = values[2] if len(values)==3 else '1'
+    amount = values[2] if len(values) == 3 else '1'
 
     try:
         total_base = PriceHelper.get_price(quote, base, amount)
     except ConvertionException as e:
         print(f'convert: err={e}')
         return bot.reply_to(message, f'{e}')
+
     except Exception as e:
         return bot.reply_to(message, f'Не удалось обработать команду \n {e}')
 

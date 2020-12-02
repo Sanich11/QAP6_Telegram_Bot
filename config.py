@@ -1,14 +1,13 @@
-TOKEN = '1419509223:AAElLhdtLugQVBy9KsdBD_lclCj-0i0Lo5g'
+TOKEN = '1475733791:AAFTNG9ILUlGHAh-cPqlm_7axLzVbX_cmSE'
 
 keys = {
     'рубль': 'RUR',
     'евро': 'EUR',
     'доллар': 'USD',
     'юань': 'CNY',
-    'японская иена': 'JPY',
-    'фунт стерлингов': 'GBP',
     'гривна': 'UAH',
     'биткоин': 'BTC',
     'эфириум': 'ETH'
 }
+
 keys3 = {k[:3]:v for k,v in keys.items()}
